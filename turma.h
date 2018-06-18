@@ -22,6 +22,7 @@
 
 #include <ns3/core-module.h>
 #include <vector>
+#include "aluno.h"
 
 using namespace ns3;
 
@@ -33,6 +34,7 @@ public:
   
 private:
   std::vector<Aluno> alunos;
+  int m_tam;
 
 protected:
   virtual void DoDispose (void);

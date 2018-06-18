@@ -32,10 +32,10 @@ public:
   void setNome(std::string nome);
   std::string getNome();
   unsigned int m_idade;
+
 	 
 private:
   std::string m_nome;
-  std::string m_curso;
 
 protected:
   virtual void DoDispose (void);

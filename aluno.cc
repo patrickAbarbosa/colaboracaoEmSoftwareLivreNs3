@@ -28,8 +28,7 @@ Aluno::GetTypeId (void)
 {
   static TypeId tid = TypeId ("Aluno")
     .SetParent<Object> ()
-    .AddConstructor<Aluno> ()
-    .SetCurso<std::string>()
+    .AddConstructor<Object> ()
   ;
   return tid;
 }

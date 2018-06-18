@@ -20,22 +20,30 @@
 
 Turma::Turma()
 {
+  m_tam = 0;
   NS_LOG_UNCOND ("Turma");
 }
-
+/* GetTypeId guada o tipo de ponteiro do objeto e sua posição,
+ * assim simplificando sua modificação;
+ *
+ */
 TypeId
 Turma::GetTypeId (void)
 {
-  static TypeId tid = TypeId ("Turma")
-    .SetParent<Object> ()
-    .AddConstructor<Aluno> ()
-    .AddAluno<Aluno> ()
+  /* O TypeId tid serve para identificar seu o ponteiro,
+   * recebendo geralmente o nome da classe.
+   */
+  static TypeId tid = TypeId ("Turma") //classe Turma
+     .SetParent<Object> ()
+    .SetGroupName("Escola") //Grupo do qual seu objeto participa
+    .AddConstructor<Object> ()//recebe o objeto para que o construtor guarde-o
+    //.AddTranceSouce("Name", "Descrição do método", MakeTraceSourceAcessor(&Turma:m_tam), "ns3 :: TracedValueCallback :: Int32")  
   ;
   return tid;
 }
 
 void
-Aluno::DoDispose (void)
+Aluno::DoDispose (void) 
 {
   Object::DoDispose ();
 }

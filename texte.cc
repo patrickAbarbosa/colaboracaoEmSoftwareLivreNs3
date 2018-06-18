@@ -17,6 +17,7 @@
 
 #include <ns3/core-module.h>
 #include "aluno.h"
+#include "turma.h"
 
 using namespace ns3;
 
@@ -25,14 +26,23 @@ main(int argc, char *argv[])
 {
   NS_LOG_UNCOND("Hello Patrick");
 
-  Ptr<Aluno> aluno = CreateObject<Aluno> ();
-  aluno->setNome("Patrick");
-  aluno->m_curso = "Ciencia da Computacao";
-  aluno->m_idade = 19;
+  Ptr<Aluno> a0 = CreateObject<Aluno> ();
+  Ptr<Aluno> a1 = CreateObject<Aluno> ();
 
-  NS_LOG_UNCOND(aluno->getNome());
-  NS_LOG_UNCOND(aluno->m_curso);
-  NS_LOG_UNCOND(aluno->m_idade);
-  aluno = 0; 
+  a0->setNome("Patrick");
+  a0->m_idade = 19;
+
+  a0->setNome("Larissa");
+  a0->m_idade = 21;
+
+  Ptr<Turma> turma = CreateObject<Turma> ();
+
+
+  NS_LOG_UNCOND(a0->getNome());
+  NS_LOG_UNCOND(a0->m_idade);
+
+  a0 = 0;
+  a1 = 0; 
+  turma = 0;
   return 0;
 } 
