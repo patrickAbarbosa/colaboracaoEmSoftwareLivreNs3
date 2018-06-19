@@ -29,6 +29,8 @@ Aluno::GetTypeId (void)
   static TypeId tid = TypeId ("Aluno")
     .SetParent<Object> ()
     .AddConstructor<Object> ()
+    .SetAttribute("Nome", setNome(std::string m_nome));
+
   ;
   return tid;
 }

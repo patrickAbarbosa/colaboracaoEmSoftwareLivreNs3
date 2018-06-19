@@ -17,7 +17,7 @@
 
 #include <ns3/core-module.h>
 #include "aluno.h"
-#include "turma.h"
+
 
 using namespace ns3;
 
@@ -29,20 +29,19 @@ main(int argc, char *argv[])
   Ptr<Aluno> a0 = CreateObject<Aluno> ();
   Ptr<Aluno> a1 = CreateObject<Aluno> ();
 
-  a0->setNome("Patrick");
+  a0->setNome("Maria");
   a0->m_idade = 19;
 
-  a0->setNome("Larissa");
-  a0->m_idade = 21;
-
-  Ptr<Turma> turma = CreateObject<Turma> ();
-
+  a1->SetAttribute("Nome", "Larissa");
+  a1->m_idade = 21;
+  std::cout<<"A0: " <<a0->GetTypeId() << std::endl;
 
   NS_LOG_UNCOND(a0->getNome());
   NS_LOG_UNCOND(a0->m_idade);
-
+   NS_LOG_UNCOND(a1->getNome());
   a0 = 0;
   a1 = 0; 
-  turma = 0;
-  return 0;
+
+  Simulator::Run ();
+  Simulator::Destroy ();
 } 
