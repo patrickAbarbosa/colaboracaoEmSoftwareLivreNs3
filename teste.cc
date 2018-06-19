@@ -31,9 +31,11 @@ main(int argc, char *argv[])
 
   a0->setNome("Maria");
   //a0->m_idade = 19;
-
+  NS_LOG_UNCOND("Nome a0: " << a0->getNome());
   a1->SetAttribute("Nome", StringValue("Larissa"));
+  a0->SetAttribute("Nome", StringValue("Fernanda"));
   //a1->m_idade = 21;
+  getAttribute 
   std::cout<<"A0: " <<a0->GetTypeId() << std::endl;
 
   NS_LOG_UNCOND(a0->getNome());

@@ -34,6 +34,10 @@ Aluno::GetTypeId (void)
                    StringValue("Sem nome"),
                    MakeStringAccessor (&Aluno::m_nome),
                    MakeStringChecker ())
+    .AddAttribute("Idade", "Idade do aluno",
+                  IntergerValue(18),
+                  MakeIntergerAccessor(&Aluno::m_idade),
+                  MakeIntergerChecker())
   ;
   return tid;
 }

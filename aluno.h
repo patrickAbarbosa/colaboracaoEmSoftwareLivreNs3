@@ -31,11 +31,13 @@ public:
   static TypeId GetTypeId (void);
   void setNome(std::string nome);
   std::string getNome();
-  unsigned int m_idade;
+  
 
 	 
 private:
   std::string m_nome;
+  int m_idade;
+  std::string m_curso
 
 protected:
   virtual void DoDispose (void);
