@@ -26,6 +26,12 @@ main(int argc, char *argv[])
 {
   NS_LOG_UNCOND("Hello Patrick");
 
+  std::string nome = "Haha";
+  CommandLine cmd;
+  cmd.AddValue ("nome", "application dataRate (Kb/s)", nome);
+  cmd.Parse (argc, argv);
+
+  NS_LOG_UNCOND("Funcionou " << nome);
   Ptr<Aluno> a0 = CreateObject<Aluno> ();
   Ptr<Aluno> a1 = CreateObject<Aluno> ();
 
@@ -34,11 +40,12 @@ main(int argc, char *argv[])
   //NS_LOG_UNCOND("Nome a0: " << a0->getNome());
   a1->SetAttribute("Nome", StringValue("Larissa"));
   a0->SetAttribute("Nome", StringValue("Fernanda"));
+
   //a1->m_idade = 21;
   
-  std::cout<<"A0: " <<a0->GetTypeId() << std::endl;
+  std::cout<<"A0: " << a0->GetTypeId() << std::endl;
 
-  NS_LOG_UNCOND(a0->GetAttribute("Nome", ptr));
+  //NS_LOG_UNCOND(a0->GetAttribute("Nome", ptr));
   //NS_LOG_UNCOND(a0->m_idade);
   //NS_LOG_UNCOND(a1->getNome());
   a0 = 0;

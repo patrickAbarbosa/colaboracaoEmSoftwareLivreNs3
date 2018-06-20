@@ -1,0 +1,25 @@
+OK 
+GetType
+
+OK
+SetAttribute 
+a1->SetAttribute("Nome", StringValue("Larissa"));
+
+77TypeId
+Aluno::GetTypeId (void)
+{
+  static TypeId tid = TypeId ("Aluno")
+    .SetParent<Object> ()
+    .AddConstructor<Object> ()
+    .AddAttribute ("Nome", 
+                   "explicação",
+                   StringValue("Sem nome"),
+                   MakeStringAccessor (&Aluno::m_nome),
+                   MakeStringChecker ())
+    .AttributeValue("Nome", MakeStringAccessor(&Aluno::m_nome))
+    //.AddTraceSource("Nome",
+    //                     TraceSourceAccessor(&Aluno::m_nome))
+    //.AddAttribute("Idade", "Idade do aluno", IntegerValue(18), MakeIntegerAccessor(&Aluno::m_idade), MakeIntegeChecker())
+  ;
+  return tid;
+}

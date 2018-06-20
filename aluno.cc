@@ -35,7 +35,7 @@ Aluno::GetTypeId (void)
                    StringValue("Sem nome"),
                    MakeStringAccessor (&Aluno::m_nome),
                    MakeStringChecker ())
-    .AttributeValue("Nome", MakeStringAccessor(&Aluno::m_nome))
+    //.AttributeValue("Nome", MakeStringAccessor(&Aluno::m_nome))
     //.AddTraceSource("Nome",
     //                     TraceSourceAccessor(&Aluno::m_nome))
     //.AddAttribute("Idade", "Idade do aluno", IntegerValue(18), MakeIntegerAccessor(&Aluno::m_idade), MakeIntegeChecker())
