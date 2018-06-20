@@ -21,6 +21,7 @@
 #define ALUNO_H
 
 #include <ns3/core-module.h>
+//#include <integer.h>
 
 using namespace ns3;
 
@@ -29,15 +30,11 @@ class Aluno : public Object
 public:
   Aluno ();
   static TypeId GetTypeId (void);
-  void setNome(std::string nome);
-  std::string getNome();
-  
-
 	 
 private:
   std::string m_nome;
   int m_idade;
-  std::string m_curso
+  std::string m_curso;
 
 protected:
   virtual void DoDispose (void);

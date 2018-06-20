@@ -17,6 +17,7 @@
  */
 
 #include "aluno.h"
+//#include "integer.h"
 
 Aluno::Aluno()
 {
@@ -34,23 +35,10 @@ Aluno::GetTypeId (void)
                    StringValue("Sem nome"),
                    MakeStringAccessor (&Aluno::m_nome),
                    MakeStringChecker ())
-    .AddAttribute("Idade", "Idade do aluno",
-                  IntergerValue(18),
-                  MakeIntergerAccessor(&Aluno::m_idade),
-                  MakeIntergerChecker())
+    .GetAttribute("Nome", "Retorna o nome", MakeStringAccessor(&Aluno::m_nome))
+    //.AddAttribute("Idade", "Idade do aluno", IntegerValue(18), MakeIntegerAccessor(&Aluno::m_idade), MakeIntegeChecker())
   ;
   return tid;
-}
-
-void
-Aluno::setNome(std::string nome)
-{
-	m_nome = nome;
-}
-std::string
-Aluno::getNome()
-{
-	return m_nome;
 }
 
 void
