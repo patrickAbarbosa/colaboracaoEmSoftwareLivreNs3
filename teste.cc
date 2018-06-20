@@ -38,7 +38,7 @@ main(int argc, char *argv[])
   
   std::cout<<"A0: " <<a0->GetTypeId() << std::endl;
 
-  NS_LOG_UNCOND(a0->GetAttribute(m_nome));
+  NS_LOG_UNCOND(a0->GetAttribute("Nome", ptr));
   //NS_LOG_UNCOND(a0->m_idade);
   //NS_LOG_UNCOND(a1->getNome());
   a0 = 0;
