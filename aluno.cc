@@ -12,33 +12,29 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ * 
  * Author: Patrick Barbosa < patrickbarbosa@ice.ufjf.br >
  * Federal University of Juiz de Fora - (UFJF)
  */
 
 #include "aluno.h"
-//#include "integer.h"
 
 Aluno::Aluno()
 {
-  NS_LOG_UNCOND ("Criando Aluno");
+  
 }
 
 TypeId
 Aluno::GetTypeId (void)
 {
   static TypeId tid = TypeId ("Aluno")
-    .SetParent<Object> ()
-    .AddConstructor<Object> ()
+    .SetParent <Object>()
+    .AddConstructor <Object>()
     .AddAttribute ("Nome", 
-                   "explicação",
+                   "Nome do aluno para fazer a indentificação",
                    StringValue("Sem nome"),
                    MakeStringAccessor (&Aluno::m_nome),
                    MakeStringChecker ())
-    //.AttributeValue("Nome", MakeStringAccessor(&Aluno::m_nome))
-    //.AddTraceSource("Nome",
-    //                     TraceSourceAccessor(&Aluno::m_nome))
-    //.AddAttribute("Idade", "Idade do aluno", IntegerValue(18), MakeIntegerAccessor(&Aluno::m_idade), MakeIntegeChecker())
   ;
   return tid;
 }

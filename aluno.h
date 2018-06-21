@@ -33,8 +33,6 @@ public:
 	 
 private:
   std::string m_nome;
-  int m_idade;
-  std::string m_curso;
 
 protected:
   virtual void DoDispose (void);
