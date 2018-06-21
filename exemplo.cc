@@ -44,15 +44,15 @@ main(int argc, char *argv[])
   fabrica.SetTypeId("Aluno");
   fabrica.Set("Nome", StringValue("Fabrica"));
   
-  Ptr<Object> obj0 = fabrica.Create();
-  Ptr<Object> obj1 = fabrica.Create();
+  Ptr<Object> obj0 = fabrica.Create<Aluno> ();
+  Ptr<Object> obj1 = fabrica.Create<Aluno>();
   
   std::cout << std::endl << "--------" << std::endl;
   
-  //obj0->GetAttribute("Nome", valor);
-  //NS_LOG_UNCOND("Nome obj0: " << valor.Get());
-  //obj1->GetAttribute("Nome", valor);
-  //NS_LOG_UNCOND("Nome obj1: " << valor.Get());
+  obj0->GetAttribute("Nome", valor);
+  NS_LOG_UNCOND("Nome obj0: " << valor.Get());
+  obj1->GetAttribute("Nome", valor);
+  NS_LOG_UNCOND("Nome obj1: " << valor.Get());
 
   Config::SetDefault("Aluno::Nome", StringValue("Fernanda"));
 
