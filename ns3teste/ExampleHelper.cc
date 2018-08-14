@@ -17,30 +17,45 @@
  * Federal University of Juiz de Fora - (UFJF)
  */
 
-#include "aluno.h"
+namespace ns3 { 
 
-Aluno::Aluno()
+NS_OBJECT_ENSURE_REGISTERED (ExampleHelper);
+
+ExampleHelper::ExampleHelper ()
 {
-  
+  NS_LOG_FUNCTION (this);
+}
+
+ExampleHelper::~ExampleHelper ()
+{
+  NS_LOG_FUNCTION (this);
 }
 
 TypeId
-Aluno::GetTypeId (void)
+ExampleHelper::GetTypeId (void)
 {
-  static TypeId tid = TypeId ("Aluno")
-    .SetParent <Object>()
-    .AddConstructor <Object>()
-    .AddAttribute ("Nome", 
-                   "Nome do aluno para fazer a indentificação",
-                   StringValue("Sem nome"),
-                   MakeStringAccessor (&Aluno::m_nome),
-                   MakeStringChecker ())
+  static TypeId tid = TypeId ("ns3::ExampleHelper")
+    .SetParent <Object> ()
+    .AddConstructor <ExampleHelper> ()
+    .AddAttribute ("FactoryAtt", 
+                   "The single factory in this class.",
+                   ObjectFactoryValue (ObjectFactory ()),
+                   MakeObjectFactoryAccessor (&ExampleHelper::m_factory),
+                   MakeObjectFactoryChecker ())
   ;
   return tid;
 }
 
 void
-Aluno::DoDispose (void)
+ExampleHelper::DoDispose (void)
 {
+  NS_LOG_FUNCTION (this);
   Object::DoDispose ();
 }
+
+void
+ExempleHelper::NotifyConstructionCompleted (void)
+{
+  NS_LOG_FUNCTION (this);
+}
+} // namespace ns3
