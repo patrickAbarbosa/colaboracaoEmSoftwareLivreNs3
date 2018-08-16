@@ -54,7 +54,7 @@ ExampleHelper::DoDispose (void)
 }
 
 void
-ExempleHelper::NotifyConstructionCompleted (void)
+ExampleHelper::NotifyConstructionCompleted (void)
 {
   NS_LOG_FUNCTION (this);
 }
