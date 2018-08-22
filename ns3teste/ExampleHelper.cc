@@ -17,7 +17,11 @@
  * Federal University of Juiz de Fora - (UFJF)
  */
 
+#include "example-helper.h"
+
 namespace ns3 { 
+
+NS_LOG_COMPONENT_DEFINE("ExampleHelper");
 
 NS_OBJECT_ENSURE_REGISTERED (ExampleHelper);
 
@@ -57,5 +61,10 @@ void
 ExampleHelper::NotifyConstructionCompleted (void)
 {
   NS_LOG_FUNCTION (this);
+
+  //std::cout << m_factory.GetTypeId () << std::endl;
+  Ptr<Object> a = m_factory.Create ();
+  std::cout << a->GetTypeId () << std::endl;
 }
 } // namespace ns3
+

@@ -22,7 +22,7 @@
 
 #include <ns3/core-module.h>
 
-using namespace ns3 {
+namespace ns3 {
 
 class ExampleHelper : public Object
 {
@@ -48,3 +48,4 @@ private:
 };	
 } // namespace ns3
 #endif // EXAMPLE_HELPER_H
+

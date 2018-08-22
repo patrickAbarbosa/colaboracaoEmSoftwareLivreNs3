@@ -19,21 +19,21 @@
 
 #include <ns3/core-module.h>
 #include "ns3/config-store.h"
-#include "ExampleHelper.h"
+#include "example-helper.h"
 
 using namespace ns3;
 
 int
 main(int argc, char *argv[])
 {
+  LogComponentEnable ("ExampleHelper", LOG_LEVEL_ALL);
   ConfigStore config;
   config.SetAttribute("Mode", StringValue("Load"));
   config.SetAttribute("Filename", StringValue("config"));
-  config.SetAttribute("FileFormat", StringValue(".txt"));
+  config.SetAttribute("FileFormat", StringValue("RawText"));
 	
-  Ptr<ExampleHelper> x;
-
-  x = new ExampleHelper();
+  config.ConfigureDefaults ();
+  Ptr<ExampleHelper> x = CreateObject<ExampleHelper> ();
 
   return 0;
 }
