@@ -16,7 +16,7 @@
  * Author: Patrick Barbosa < patrickbarbosa@ice.ufjf.br >
  * Federal University of Juiz de Fora - (UFJF)
  */
- 
+
 #ifndef EXAMPLE_HELPER_H
 #define EXAMPLE_HELPER_H
 
@@ -29,7 +29,7 @@ class ExampleHelper : public Object
 public:
   ExampleHelper ();           //!< Default constructor
   virtual ~ExampleHelper();   //!< Dummy destructor, see DoDispose;
-  
+
   /**
    * Register this type.
    * \return the object TypeId.
@@ -42,10 +42,11 @@ protected:
 
   //Inherited from ObjectBase
   virtual void NotifyConstructionCompleted (void);
-	 
+
 private:
   ObjectFactory m_factory; //!< Factory for testing.
-};	
+  Ptr<Object> obj;
+};
 } // namespace ns3
 #endif // EXAMPLE_HELPER_H
 

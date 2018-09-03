@@ -12,14 +12,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- * 
+ *
  * Author: Patrick Barbosa < patrickbarbosa@ice.ufjf.br >
  * Federal University of Juiz de Fora - (UFJF)
  */
 
 #include "example-helper.h"
 
-namespace ns3 { 
+namespace ns3 {
 
 NS_LOG_COMPONENT_DEFINE("ExampleHelper");
 
@@ -41,9 +41,9 @@ ExampleHelper::GetTypeId (void)
   static TypeId tid = TypeId ("ns3::ExampleHelper")
     .SetParent <Object> ()
     .AddConstructor <ExampleHelper> ()
-    .AddAttribute ("FactoryAtt", 
+    .AddAttribute ("FactoryAtt",
                    "The single factory in this class.",
-                   ObjectFactoryValue (ObjectFactory ()),
+                   ObjectFactoryValue (ObjectFactory ("ns3::UniformRandomVariable")),
                    MakeObjectFactoryAccessor (&ExampleHelper::m_factory),
                    MakeObjectFactoryChecker ())
   ;
@@ -62,9 +62,10 @@ ExampleHelper::NotifyConstructionCompleted (void)
 {
   NS_LOG_FUNCTION (this);
 
-  //std::cout << m_factory.GetTypeId () << std::endl;
+  std::cout << "FactoryAtt type: " << m_factory << std::endl;
+
   Ptr<Object> a = m_factory.Create ();
-  std::cout << a->GetTypeId () << std::endl;
 }
+
 } // namespace ns3
 

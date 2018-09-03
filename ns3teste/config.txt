@@ -1,1 +1,0 @@
-defaut ns3::ExampleHelper::FactoryAtt "ns3::UniformRandomVariable"

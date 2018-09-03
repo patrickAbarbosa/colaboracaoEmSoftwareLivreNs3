@@ -24,16 +24,18 @@
 using namespace ns3;
 
 int
-main(int argc, char *argv[])
+main (int argc, char *argv[])
 {
-  LogComponentEnable ("ExampleHelper", LOG_LEVEL_ALL);
+  // LogComponentEnable ("ExampleHelper", LOG_LEVEL_ALL);
+
+  Config::SetDefault ("ns3::ConfigStore::Mode", StringValue ("Load"));
+  Config::SetDefault ("ns3::ConfigStore::FileFormat", StringValue ("RawText"));
+  Config::SetDefault ("ns3::ConfigStore::Filename", StringValue ("config.txt"));
+
   ConfigStore config;
-  config.SetAttribute("Mode", StringValue("Load"));
-  config.SetAttribute("Filename", StringValue("config"));
-  config.SetAttribute("FileFormat", StringValue("RawText"));
-	
   config.ConfigureDefaults ();
-  Ptr<ExampleHelper> x = CreateObject<ExampleHelper> ();
+
+  Ptr<ExampleHelper> example = CreateObject<ExampleHelper> ();
 
   return 0;
 }
