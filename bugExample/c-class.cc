@@ -40,7 +40,7 @@ CClass::GetTypeId (void)
   static TypeId tid = TypeId ("ns3::CClass")
     .SetParent <Object> ()
     .AddConstructor <CClass> ()
-    .AddAtribute ("FactoryAtt",
+    .AddAtribute ("FactoryCAtt",
                   "The single factory in this class",
                   ObjectFactoryValue (ObjectFactory ("ns3:UniformRandonVariable")),
                   MakeObjectFactoryAcessor (&AClass::m_factory),
@@ -55,11 +55,11 @@ CClass::GetTypeId (void)
 }
 
 void
-AClass::NotifyConstructionCompleted (void)
+CClass::NotifyConstructionCompleted (void)
 {
   NS_LOG_FUNCTION (this);
 
-  m_obj = m_factory.Create ();
+  m_obj = m_factory.Create<AClass> ();
 }
 } // namespace ns3
 

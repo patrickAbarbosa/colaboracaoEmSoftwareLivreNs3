@@ -1,0 +1,2 @@
+default ns3::AClass::FactoryAtt "ns3::BClass[AttA=false|AttB=5]"
+default ns3::Aclass::FactoryCAtt "ns3::AClass[FactoryAtt=ns3::BClass[AttA=true|AttB=

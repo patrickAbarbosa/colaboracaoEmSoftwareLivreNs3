@@ -16,35 +16,29 @@
  * Federal University of Juiz de Fora - (UFJF)
  */
 
-#ifndef C_CLASS_H
-#define C_CLASS_H
+#include <ns3/core-module.h>
+#include "ns3/config-store.h"
+#include "AClass"
+#include "BClass"
+#include "CClass"
 
-namespace ns3 {
+using namespace ns3;
 
-class CClass : public
+int
+main (int argc, char *argv[])
 {
-public:
-  CClass ();             //!< Default constructor
-  virtual ~CClass ();   //!< Dummy destructor, see DoDispose;
+  Config::SetDefault ("ns3::ConfigStore::Mode", StringValue ("Load");
+  Config::SetDefault ("ns3::ConfigStore::FileFormat", StringValue ("RawText"));
+  Config::SetDefault ("ns3::ConfigStore::Filename", StringValue ("config-file.txt"));
+
+  ConfigStore config;
+  config.ConfigureDefaults ();
 
   /*
-   * Register this type
-   * \return the object TypeId.
-   */
-  static TypeId GetTypeId (void);
+   * Starting report to localized bug in ns3
+   */  
+  Ptr<AClass> a = CreateObject<AClass> ();
+  Ptr<CClass> c = CreateObject<CClass> ();
 
-protected:
-  /** Destructor implementation. */
-  virtual void DoDispose (void);
-
-  //Inherited from ObjectBase
-  virtual void NotifyContructionCompleted (void);
-
-private:
-  ObjectFactory m_factory; //!< Factory for testing.
-  Ptr<AClass> m_obj;
-  int16_t m_integer;
-};
-} //namespace ns3
-#endif // C_CLASS_H
-
+  return 0;
+}
