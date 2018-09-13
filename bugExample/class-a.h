@@ -16,16 +16,21 @@
  * Federal University of Juiz de Fora - (UFJF)
  */
 
-#ifndef B_CLASS_H
-#define B_CLASS_H
+#ifndef CLASS_A_H
+#define CLASS_A_H
+
+#include <ns3/core-module.h>
 
 namespace ns3 {
 
-class BClass : public
+class ClassB;
+class ClassC;
+
+class ClassA : public Object
 {
 public:
-  BClass ();             //!< Default constructor
-  virtual ~BClass ();   //!< Dummy destructor, see DoDispose;
+  ClassA ();             //!< Default constructor
+  virtual ~ClassA ();     //!< Dummy destructor, see DoDispose;
 
   /*
    * Register this type
@@ -38,12 +43,12 @@ protected:
   virtual void DoDispose (void);
 
   //Inherited from ObjectBase
-  virtual void NotifyContructionCompleted (void);
+  virtual void NotifyConstructionCompleted (void);
 
 private:
-  bool m_x;
-  int16_t m_y;
+  ObjectFactory m_factory;    //!< Factory for Class B.
+  Ptr<ClassB>   m_ptrToB;     //!< Pointer to Class B.
 };
-} //namespace ns3
-#endif // B_CLASS_H
 
+} //namespace ns3
+#endif // CLASS_A_H

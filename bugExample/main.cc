@@ -18,27 +18,22 @@
 
 #include <ns3/core-module.h>
 #include "ns3/config-store.h"
-#include "AClass"
-#include "BClass"
-#include "CClass"
+#include "class-a.h"
+#include "class-b.h"
+#include "class-c.h"
 
 using namespace ns3;
 
 int
 main (int argc, char *argv[])
 {
-  Config::SetDefault ("ns3::ConfigStore::Mode", StringValue ("Load");
+  Config::SetDefault ("ns3::ConfigStore::Mode", StringValue ("Load"));
   Config::SetDefault ("ns3::ConfigStore::FileFormat", StringValue ("RawText"));
   Config::SetDefault ("ns3::ConfigStore::Filename", StringValue ("config-file.txt"));
+  ConfigStore inputConfig;
+  inputConfig.ConfigureDefaults ();
 
-  ConfigStore config;
-  config.ConfigureDefaults ();
-
-  /*
-   * Starting report to localized bug in ns3
-   */  
-  Ptr<AClass> a = CreateObject<AClass> ();
-  Ptr<CClass> c = CreateObject<CClass> ();
+  Ptr<ClassA> a = CreateObject<ClassA> ();
 
   return 0;
 }

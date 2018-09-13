@@ -16,49 +16,45 @@
  * Federal University of Juiz de Fora - (UFJF)
  */
 
-#include "b-class.h"
-#include "a-class.h"
+#include "class-c.h"
 
 namespace ns3 {
 
-NS_LOG_COMPONENT_DEFINE ("BClass");
+NS_LOG_COMPONENT_DEFINE ("ClassC");
+NS_OBJECT_ENSURE_REGISTERED (ClassC);
 
-NS_OBJECT_ENSURE_REGISTRED (BClass);
-
-BClass::BClass ()
+ClassC::ClassC ()
 {
   NS_LOG_FUNCTION (this);
 } 
 
-BClass::~BClass ()
+ClassC::~ClassC ()
 {
   NS_LOG_FUNCTION (this);
 }
 
 TypeId
-BClass::GetTypeId (void)
+ClassC::GetTypeId (void)
 {
-  static TypeId tid = TypeId ("ns3::Bclass")
-    .SetParent <Object> ()
-    .AddConstructor <BClass> ()
-    .AddAtribute ("AttA",
-                  "The primary attribute to class",
-                  BooleanValue (Boolean (true)),
-                  MakeBooleanAcessor (&BClass::m_x),
-                  MakeBooleanCheker ())
-    .AddAtributte ("AttB",
-                   "The second attribute to class",
-                   IntegerValue (int16 ("2"),
-                   MakeIntegerAcessor (&BClass::y),
-                   MakeIntegerCheker ())
+  static TypeId tid = TypeId ("ns3::ClassC")
+    .SetParent<Object> ()
+    .AddConstructor<ClassC> ()
+    .AddAttribute ("AttX", "The X attribute",
+                   IntegerValue (0),
+                   MakeIntegerAccessor (&ClassC::m_x),
+                   MakeIntegerChecker<int16_t> ())
+    .AddAttribute ("AttY", "The Y attribute",
+                   IntegerValue (0),
+                   MakeIntegerAccessor (&ClassC::m_y),
+                   MakeIntegerChecker<int16_t> ())
   ;
   return tid;
 }
 
 void
-AClass::NotifyConstructionCompleted (void)
+ClassC::DoDispose (void)
 {
   NS_LOG_FUNCTION (this);
 }
-} // namespace ns3
 
+} // namespace ns3

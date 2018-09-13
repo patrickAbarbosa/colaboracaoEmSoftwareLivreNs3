@@ -16,50 +16,52 @@
  * Federal University of Juiz de Fora - (UFJF)
  */
 
-#include "c-class.h"
+#include "class-c.h"
+#include "class-b.h"
 
 namespace ns3 {
 
-NS_LOG_COMPONENT_DEFINE ("CClass");
+NS_LOG_COMPONENT_DEFINE ("ClassB");
+NS_OBJECT_ENSURE_REGISTERED (ClassB);
 
-NS_OBJECT_ENSURE_REGISTRED (CClass);
-
-CClass::CClass ()
+ClassB::ClassB ()
 {
   NS_LOG_FUNCTION (this);
 } 
 
-CClass::~CClass ()
+ClassB::~ClassB ()
 {
   NS_LOG_FUNCTION (this);
 }
 
 TypeId
-CClass::GetTypeId (void)
+ClassB::GetTypeId (void)
 {
-  static TypeId tid = TypeId ("ns3::CClass")
-    .SetParent <Object> ()
-    .AddConstructor <CClass> ()
-    .AddAtribute ("FactoryCAtt",
-                  "The single factory in this class",
-                  ObjectFactoryValue (ObjectFactory ("ns3:UniformRandonVariable")),
-                  MakeObjectFactoryAcessor (&AClass::m_factory),
-                  MakeObjectFactoryCheker ())
-    .AddAtribute ("Integer",
-                  "The single integer in this class",
-                  IntegerValue (Integer (2)),
-                  MakeIntegerAcessor (&CClass::m_integer),
-                  MakeOIntegerCheker ())
+  static TypeId tid = TypeId ("ns3::ClassB")
+    .SetParent<Object> ()
+    .AddConstructor<ClassB> ()
+    .AddAttribute ("AttPointer", "The pointer to another class",
+                   StringValue ("ns3::ClassC"),
+                   MakePointerAccessor (&ClassB::m_ptrToC),
+                   MakePointerChecker<ClassC> ())
+    .AddAttribute ("AttW", "The W attribute",
+                   IntegerValue (0),
+                   MakeIntegerAccessor (&ClassB::m_w),
+                   MakeIntegerChecker<int16_t> ())
+    .AddAttribute ("AttZ", "The Z attribute",
+                   IntegerValue (0),
+                   MakeIntegerAccessor (&ClassB::m_z),
+                   MakeIntegerChecker<int16_t> ())
   ;
   return tid;
 }
 
 void
-CClass::NotifyConstructionCompleted (void)
+ClassB::DoDispose (void)
 {
   NS_LOG_FUNCTION (this);
-
-  m_obj = m_factory.Create<AClass> ();
+  m_ptrToC = 0;
 }
+
 } // namespace ns3
 
